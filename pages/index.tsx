@@ -22,7 +22,8 @@ const Home: NextPage = () => {
   };
   return (
     <div>
-      <div className="flex justify-center items-center">
+      <h1 className="text-center text-3xl font-bold text-yellow-400 mt-5">Compiler Mini Project</h1>
+      <div className="flex justify-center items-center mt-5">
         <form className="m-4 flex" onSubmit={handleSubmit}>
           <input
             className="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
@@ -38,18 +39,20 @@ const Home: NextPage = () => {
         </form>
       </div>
       <br />
-      {result.length !== 0 ? (
-        result.split("|").map((e) => (
-          <>
-            <div key={result.split("|").indexOf(e)}>
-              Token {result.split("|").indexOf(e) + 1} : {e}
-            </div>
-            <br />
-          </>
-        ))
-      ) : (
-        <div></div>
-      )}
+      <div className={"absolute left-[50%] top-[50%] translate-x-[-50%] mt-[-200px] " +(result.length>0 ? 'border-4 p-5 border-yellow-500': 'border-none')}>
+        {result.length !== 0 ? (
+          result.split("|").map((e) => (
+            <>
+              <div key={result.split("|").indexOf(e)}>
+                <span className="text-yellow-400 text-lg font-bold">Token {result.split("|").indexOf(e) + 1}</span>: {e}
+              </div>
+              <br />
+            </>
+          ))
+        ) : (
+          <div></div>
+        )}
+      </div>
     </div>
   );
 };
