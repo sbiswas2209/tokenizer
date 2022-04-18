@@ -1,6 +1,5 @@
+import jsTokens from "js-tokens";
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import { useState } from "react";
 import styles from "../styles/Home.module.css";
 
@@ -37,19 +36,20 @@ const Home: NextPage = () => {
           </button>
         </form>
       </div>
-      <br />
-      {result.length !== 0 ? (
-        result.split("|").map((e) => (
-          <>
-            <div key={result.split("|").indexOf(e)}>
-              Token {result.split("|").indexOf(e) + 1} : {e}
-            </div>
-            <br />
-          </>
-        ))
-      ) : (
-        <div></div>
-      )}
+      <div className={"absolute left-[50%] top-[50%] translate-x-[-50%] mt-[-200px] " +(result.length>0 ? 'border-4 p-5 border-yellow-500': 'border-none')}>
+        {result.length !== 0 ? (
+          result.split("|").map((e) => (
+            <>
+              <div key={result.split("|").indexOf(e)}>
+                <span className="text-yellow-400 text-lg font-bold">Token {result.split("|").indexOf(e) + 1}</span>: {e}
+              </div>
+              <br />
+            </>
+          ))
+        ) : (
+          <div></div>
+        )}
+      </div>
     </div>
   );
 };

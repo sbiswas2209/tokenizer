@@ -7,5 +7,5 @@ export default function handler(
   res: NextApiResponse
 ) {
   console.log(req.body)
-  res.status(200).json({ tokens: Array.from(jsTokens(req.body.input), (token) => token.value).filter((e) => e !== " ").join("|") })
+  res.status(200).json({ tokens: Array.from(jsTokens(req.body.input), (token) => token.value + " - " + token.type).filter((e) => !e.startsWith(" ")).join("|") })
 }
