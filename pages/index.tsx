@@ -21,7 +21,8 @@ const Home: NextPage = () => {
   };
   return (
     <div>
-      <div className="flex justify-center items-center">
+      <h1 className="text-center text-3xl font-bold text-yellow-400 mt-5">Compiler Mini Project</h1>
+      <div className="flex justify-center items-center mt-5">
         <form className="m-4 flex" onSubmit={handleSubmit}>
           <input
             className="rounded-l-lg p-4 border-t mr-0 border-b border-l text-gray-800 border-gray-200 bg-white"
